@@ -1,7 +1,6 @@
 "use client"
 
 import type React from "react"
-
 import { useState, useEffect } from "react"
 import { Input } from "@/components/ui/input"
 import { Button } from "@/components/ui/button"
@@ -80,7 +79,29 @@ export default function EngineerDatabase() {
             </div>
           </div>
 
-          <%= render 'shared/search_buttons' %>
+          <div className="flex gap-2">
+            <Button
+              variant={searchField === "NAMA EOS" ? "default" : "outline"}
+              onClick={() => setSearchField("NAMA EOS")}
+              className="flex-1 md:flex-none"
+            >
+              NAMA EOS
+            </Button>
+            <Button
+              variant={searchField === "NAMA CC" ? "default" : "outline"}
+              onClick={() => setSearchField("NAMA CC")}
+              className="flex-1 md:flex-none"
+            >
+              NAMA CC
+            </Button>
+            <Button
+              variant={searchField === "WITEL EOS-NEW" ? "default" : "outline"}
+              onClick={() => setSearchField("WITEL EOS-NEW")}
+              className="flex-1 md:flex-none"
+            >
+              LOKASI SITE
+            </Button>
+          </div>
 
           <Button onClick={handleSearch} className="md:w-24">
             Search
