@@ -99,7 +99,7 @@ export default function EngineerDatabase() {
               onClick={() => setSearchField("WITEL EOS-NEW")}
               className="flex-1 md:flex-none"
             >
-              LOKASI SITE
+              WITEL EOS
             </Button>
           </div>
 
@@ -127,7 +127,7 @@ export default function EngineerDatabase() {
                   <TableHead className="font-bold">NO HP</TableHead>
                   <TableHead className="font-bold">CC/AREA</TableHead>
                   <TableHead className="font-bold">NAMA CC</TableHead>
-                  <TableHead className="font-bold">LOKASI SITE</TableHead>
+                  <TableHead className="font-bold">WITEL EOS</TableHead>
                 </TableRow>
               </TableHeader>
               <TableBody>
