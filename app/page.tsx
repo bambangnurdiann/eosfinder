@@ -80,29 +80,7 @@ export default function EngineerDatabase() {
             </div>
           </div>
 
-          <div className="flex gap-2">
-            <Button
-              variant={searchField === "NAMA EOS" ? "default" : "outline"}
-              onClick={() => setSearchField("NAMA EOS")}
-              className="flex-1 md:flex-none"
-            >
-              NAMA EOS
-            </Button>
-            <Button
-              variant={searchField === "NAMA CC" ? "default" : "outline"}
-              onClick={() => setSearchField("NAMA CC")}
-              className="flex-1 md:flex-none"
-            >
-              NAMA CC
-            </Button>
-            <Button
-              variant={searchField === "WITEL EOS-NEW" ? "default" : "outline"}
-              onClick={() => setSearchField("WITEL EOS-NEW")}
-              className="flex-1 md:flex-none"
-            >
-              LOKASI SITE
-            </Button>
-          </div>
+          <%= render 'shared/search_buttons' %>
 
           <Button onClick={handleSearch} className="md:w-24">
             Search
@@ -137,8 +115,8 @@ export default function EngineerDatabase() {
                     </TableCell>
                   </TableRow>
                 ) : filteredData.length > 0 ? (
-                  filteredData.map((engineer) => (
-                    <TableRow key={engineer.NIK}>
+                  filteredData.map((engineer, index) => (
+                    <TableRow key={`${engineer.NIK}-${index}`}>
                       <TableCell>{engineer.NIK}</TableCell>
                       <TableCell>{engineer["NAMA EOS"]}</TableCell>
                       <TableCell>{engineer["NO HP"]}</TableCell>
@@ -166,4 +144,3 @@ export default function EngineerDatabase() {
     </div>
   )
 }
-
