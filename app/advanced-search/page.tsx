@@ -16,7 +16,6 @@ export default function AdvancedSearch() {
   })
   const [filteredData, setFilteredData] = useState<Engineer[]>(engineerData)
 
-  // Live filtering effect
   useEffect(() => {
     const filtered = engineerData.filter((engineer) => {
       const nameMatch =
@@ -35,7 +34,7 @@ export default function AdvancedSearch() {
     });
 
     setFilteredData(filtered);
-  }, [filters]); // Runs whenever filters change
+  }, [filters]);
 
   const handleFilterChange = (field: keyof typeof filters, value: string) => {
     setFilters((prev) => ({
@@ -50,7 +49,6 @@ export default function AdvancedSearch() {
       "NAMA CC": "",
       "WITEL EOS-NEW": "",
     });
-    // No need to setFilteredData here since useEffect will handle it
   }
 
   return (
@@ -86,7 +84,7 @@ export default function AdvancedSearch() {
               value={filters["WITEL EOS-NEW"]}
               onChange={(e) => handleFilterChange("WITEL EOS-NEW", e.target.value)}
             />
-            <p className="text-xs text-muted-foreground mt-1">Enter exact location (e.g., "BANDUNG")</p>
+            <p className="text-xs text-muted-foreground mt-1">Enter exact location (e.g., &quot;BANDUNG&quot;)</p>
           </div>
         </div>
 
@@ -111,8 +109,8 @@ export default function AdvancedSearch() {
               </TableHeader>
               <TableBody>
                 {filteredData.length > 0 ? (
-                  filteredData.map((engineer) => (
-                    <TableRow key={engineer.NIK}>
+                  filteredData.map((engineer, index) => (
+                    <TableRow key={`${engineer.NIK}-${index}`}>
                       <TableCell>{engineer.NIK}</TableCell>
                       <TableCell>{engineer["NAMA EOS"]}</TableCell>
                       <TableCell>{engineer["NO HP"]}</TableCell>
