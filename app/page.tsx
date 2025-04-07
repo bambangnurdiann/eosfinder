@@ -110,6 +110,8 @@ export default function EngineerDatabase() {
 
         <div className="text-sm text-muted-foreground mt-2 mb-4">
           <p>
+            Note: Location searches require exact matches (e:
+
             Note: Location searches require exact matches (e.g., "BANDUNG"). Name and company searches allow partial
             matches.
           </p>
